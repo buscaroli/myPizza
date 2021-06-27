@@ -15,9 +15,15 @@ struct ContentView: View {
         NavigationView {
             Form {
                 Section {
-                    Picker("Choose your Pizza", selection: $order.type) {
+                    Picker("Choose your Pizza", selection: $order.selectedType) {
                         ForEach(0..<Order.types.count) { pizza in
                             Text(Order.types[pizza])
+                        }
+                    }
+                    
+                    Picker("Select the size", selection: $order.selectedSize) {
+                        ForEach(0..<Order.sizes.count) { pizza in
+                            Text(Order.sizes[pizza])
                         }
                     }
                     

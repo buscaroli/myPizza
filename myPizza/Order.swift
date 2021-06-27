@@ -12,14 +12,14 @@ class Order: ObservableObject {
         [
         "Margherita",
         "Marinara",
-        "Funghi - Mushrooms",
-        "Contadina - Veggies",
-        "Capricciosa - Ham Mushrooms and veggies",
-        "Boscaiola - Veggies and Mushrooms",
+        "Funghi",
+        "Contadina",
+        "Capricciosa",
+        "Boscaiola",
         "Nutella"
         ]
     
-    static let size =
+    static let sizes =
         [
         "small",
         "medium",
@@ -27,7 +27,8 @@ class Order: ObservableObject {
         "One meter of Pizza"
         ]
     
-    @Published var type = 0
+    @Published var selectedType = 0
+    @Published var selectedSize = 1
     @Published var quantity = 1
     @Published var additionalRequestEnabled = false {
         didSet {
@@ -51,5 +52,39 @@ class Order: ObservableObject {
         }
         return true
     }
+    
+    var price: Double {
+        
+        var price: Double
+        
+        switch Order.sizes[selectedSize] {
+        case "small":
+            price = 4.00
+        case "medium":
+            price = 5.00
+        case "large":
+            price = 6.00
+        default:
+            price = 10.00
+        }
+        
+        switch Order.types[selectedType] {
+        case "Margherita":
+            price += 0.00
+        case "Marinara", "Nutella":
+            price -= 0.50
+        case "Contadina", "Funghi":
+            price += 1.00
+        default:
+            price += 2.0
+        }
+        
+        if extraMozzarella == true {
+            price += 1.50
+        }
+        
+        return price * Double(quantity)
+    }
+    
     
 }
