@@ -11,6 +11,9 @@
 		238898FE2688832E006FD050 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238898FD2688832E006FD050 /* ContentView.swift */; };
 		238899002688832F006FD050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 238898FF2688832F006FD050 /* Assets.xcassets */; };
 		238899032688832F006FD050 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 238899022688832F006FD050 /* Preview Assets.xcassets */; };
+		2388990B2688C0D4006FD050 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388990A2688C0D4006FD050 /* Order.swift */; };
+		2388990D2688CCD7006FD050 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388990C2688CCD7006FD050 /* AddressView.swift */; };
+		2388990F2688CFFD006FD050 /* CheckOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388990E2688CFFD006FD050 /* CheckOutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		238898FF2688832F006FD050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		238899022688832F006FD050 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		238899042688832F006FD050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2388990A2688C0D4006FD050 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		2388990C2688CCD7006FD050 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		2388990E2688CFFD006FD050 /* CheckOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,9 @@
 			children = (
 				238898FB2688832E006FD050 /* myPizzaApp.swift */,
 				238898FD2688832E006FD050 /* ContentView.swift */,
+				2388990E2688CFFD006FD050 /* CheckOutView.swift */,
+				2388990C2688CCD7006FD050 /* AddressView.swift */,
+				2388990A2688C0D4006FD050 /* Order.swift */,
 				238898FF2688832F006FD050 /* Assets.xcassets */,
 				238899042688832F006FD050 /* Info.plist */,
 				238899012688832F006FD050 /* Preview Content */,
@@ -138,6 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2388990B2688C0D4006FD050 /* Order.swift in Sources */,
+				2388990F2688CFFD006FD050 /* CheckOutView.swift in Sources */,
+				2388990D2688CCD7006FD050 /* AddressView.swift in Sources */,
 				238898FE2688832E006FD050 /* ContentView.swift in Sources */,
 				238898FC2688832E006FD050 /* myPizzaApp.swift in Sources */,
 			);
