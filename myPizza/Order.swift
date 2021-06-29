@@ -7,7 +7,16 @@
 
 import Foundation
 
-class Order: ObservableObject {
+class Order: ObservableObject, Codable {
+    // A class with @Published properties doesn't automatically conform to the Codable protocol.
+    // We need to make the class conform to it by hand.
+    enum CodingKeys: CodingKey {
+        case selectedType, selectedSize, quantity, additionalRequestEnabled,
+             extraMozzarella, chillyPepperOil, customerName, streetAddress,
+             city, postcode
+        
+    }
+    
     static let types =
         [
         "Margherita",
@@ -84,6 +93,40 @@ class Order: ObservableObject {
         }
         
         return price * Double(quantity)
+    }
+    
+    // Without this empty initializer, COntentView would raise an Error as we start the view with
+    // an empty Order() and it would expect to have a 'from' argument.
+    init() { }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        selectedType = try container.decode(Int.self, forKey: .selectedType)
+        selectedSize = try container.decode(Int.self, forKey: .selectedSize)
+        quantity = try container.decode(Int.self, forKey: .quantity)
+        additionalRequestEnabled = try container.decode(Bool.self, forKey: .additionalRequestEnabled)
+        extraMozzarella = try container.decode(Bool.self, forKey: .extraMozzarella)
+        chillyPepperOil = try container.decode(Bool.self, forKey: .chillyPepperOil)
+        customerName = try container.decode(String.self, forKey: .customerName)
+        streetAddress = try container.decode(String.self, forKey: .streetAddress)
+        city = try container.decode(String.self, forKey: .city)
+        postcode = try container.decode(String.self, forKey: .postcode)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(selectedType, forKey: .selectedType)
+        try container.encode(selectedSize, forKey: .selectedSize)
+        try container.encode(quantity, forKey: .quantity)
+        try container.encode(additionalRequestEnabled, forKey: .additionalRequestEnabled)
+        try container.encode(extraMozzarella, forKey: .extraMozzarella)
+        try container.encode(chillyPepperOil, forKey: .chillyPepperOil)
+        try container.encode(customerName, forKey: .customerName)
+        try container.encode(streetAddress, forKey: .streetAddress)
+        try container.encode(city, forKey: .city)
+        try container.encode(postcode, forKey: .postcode)
     }
     
     
